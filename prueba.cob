@@ -15,65 +15,213 @@
        DATA DIVISION.
        FILE SECTION.
        WORKING-STORAGE SECTION.
-           01 NUMERO1 PIC 99 VALUE 25.
-           01 NUMERO2 PIC 99 VALUE 15.
-           01 NUMERO3 PIC 99 VALUE 10.
-           01 RESULTADOSUMA PIC 99 VALUE ZERO.
-           01 RESULTADORESTA PIC S99 VALUE ZERO.
-           01 RESULTADOSUMAVARIOS PIC 99 VALUE ZERO.
-           01 RESULTADOMULTIPLICACION PIC 999 VALUE ZERO.
-           01 RESULTADODIVISION PIC 99V9 VALUE ZERO.
-           01 RESULTADOCOMPUTE PIC S999 VALUE ZERO.
-
+      * 
+      * --> Los numeros pueden tener como maximo 18 caracteres
+      *     entre enteros y decimales.
+      *
+      
+      * las constantes suelen tener el prefijo CTE-
+      ******************************************************************
+      *                      CONSTANTES                                *
+      ******************************************************************
+       01 CTE-CONSTANTE.
+          05 CTE-NUMERO1             PIC 9(02)       VALUE 25.
+          05 CTE-NUMERO2             PIC 9(02)       VALUE 15.
+          05 CTE-NUMERO3             PIC 9(02)       VALUE 10.
+      *    
+      * variables suelen tener el prefijo WS- o WK-
+      ******************************************************************
+      *                      VARIABLES                                 *
+      ******************************************************************
+       01 WK-VARIABLES. 
+      * Para iniciar las variables es valido con ZEROS pero a mi me 
+      * gusta mas ZEROES      
+          05 WK-RESULTADOSUMA        PIC 9(02)       VALUE ZEROES.
+          05 WK-RESULTADORESTA       PIC S9(02)      VALUE ZEROES.
+          05 WK-RESULTADOSUMAVARIOS  PIC 9(02)       VALUE ZEROES.
+          05 WK-RESULTADOMULTIPLICACION 
+                                     PIC 9(03)       VALUE ZEROES.
+          05 WK-RESULTADODIVISION    PIC 9(02)V9(01) VALUE ZEROES.
+          05 WK-RESULTADOCOMPUTE     PIC S9(03)      VALUE ZEROES.
+      * Si quieres enredarte con los numeros, prueba con numeros mas
+      * grandes, positivos y negativos y en vez de 9's 
+      * pon estas opciones:
+      *      Z
+      *      -
+      *      +  
+      *      
        PROCEDURE DIVISION.
-      *> Este párrafo calcula la suma.
-       CALCULA-SUMA.
-           ADD NUMERO1 TO NUMERO2 GIVING RESULTADOSUMA.
-
-      *> Este párrafo calcula la resta.
-       CALCULA-RESTA.
-           SUBTRACT NUMERO1 FROM NUMERO2 GIVING RESULTADORESTA.
-
-      *> Este párrafo calcula la suma múltiple.
-       CALCULA-SUMA-MULTIPLE.
-           ADD NUMERO1,NUMERO2 TO NUMERO3 GIVING RESULTADOSUMAVARIOS.
-
-      *> Este párrafo calcula la multiplicacion.
-       CALCULA-MULTIPLICACION.
-           MULTIPLY NUMERO1 BY NUMERO2 GIVING RESULTADOMULTIPLICACION.
-
-      *> Este párrafo calcula la división.
-       CALCULA-DIVISION.
-           DIVIDE NUMERO1 BY NUMERO2 GIVING RESULTADODIVISION.
-
-      *> Este párrafo calcula una ecuación.
-       CALCULA-ECUACION.
-           COMPUTE RESULTADOCOMPUTE = (NUMERO2 - NUMERO1) * NUMERO3.
-
-       MUESTRA-RESULTADO.
+      * Los parrafos en algunos sitios se les numera y en otros no.
+      * La numeracion es una guia para saber dentro de donde se 
+      * encuentra
+      *
+      * Estos 3 parrafos son casi obligatorios, siempre hay un INICIO,
+      * PROCESO y FIN
+      *
+           PERFORM 1000-INICIO
+           PERFORM 2000-PROCESO
+           PERFORM 3000-FIN
+           .
+      * Las cajitas se usan para saber donde empieza y acaba cada 
+      * parrafo
+      *
+      ******************************************************************
+      *                       1000-INICIO                              *
+      *----------------------------------------------------------------*
+      * Dentro de este parrafo se pone la logica inicial para que el   * 
+      * programa funcione por ejemplo, abrir ficheros                  *
+      ******************************************************************
+       1000-INICIO.
+      *
+      * te creo este parrafo para que tengas un ejemplo
+           PERFORM 1100-INICIAR-VARIABLES
+           .
+      ******************************************************************
+      *                   1100-INICIAR-VARIABLES                       *
+      *----------------------------------------------------------------*
+      *                                                                *
+      ******************************************************************
+       1100-INICIAR-VARIABLES.
+      *
+           MOVE ZEROES                   TO WK-RESULTADOSUMA
+           MOVE ZEROES                   TO WK-RESULTADORESTA
+           MOVE ZEROES                   TO WK-RESULTADOSUMAVARIOS
+           MOVE ZEROES                   TO WK-RESULTADOMULTIPLICACION
+           MOVE ZEROES                   TO WK-RESULTADODIVISION
+           MOVE ZEROES                   TO WK-RESULTADOCOMPUTE
+           .
+      *
+      ******************************************************************
+      *                       2000-PROCESO                             *
+      *----------------------------------------------------------------*
+      * En este parrafo se pone la logica del programa, por ejemplo,   * 
+      * lectura del fichero, que se quiere hacer con los datos del     *
+      * fichero, escribir en otro fichero,...                          *
+      ******************************************************************
+       2000-PROCESO.
+      * 
+           PERFORM 2100-CALCULA-SUMA
+           PERFORM 2200-CALCULA-RESTA
+           PERFORM 2300-CALCULA-SUMA-MULTIPLE
+           PERFORM 2400-CALCULA-MULTIPLICACION
+           PERFORM 2500-CALCULA-DIVISION
+           PERFORM 2600-CALCULA-ECUACION
+           PERFORM 2700-MUESTRA-RESULTADO
+           .
+      *   
+      ******************************************************************
+      *                      2100-CALCULA-SUMA                         *
+      *----------------------------------------------------------------*
+      * Este párrafo calcula la suma.                                  *
+      ******************************************************************
+       2100-CALCULA-SUMA.
+      * 
+           ADD CTE-NUMERO1                TO CTE-NUMERO2 
+                                          GIVING WK-RESULTADOSUMA
+      *Si quieres menos quebraderos de cabeza, solo usa los puntos 
+      * obigatorios y en los parrafos que sean en una linea 
+      * independiente      
+           .           
+      *
+      ******************************************************************
+      *                    2200-CALCULA-RESTA                          *
+      *----------------------------------------------------------------*
+      * Este párrafo calcula la resta                                  *
+      ******************************************************************
+       2200-CALCULA-RESTA.
+      * 
+           SUBTRACT CTE-NUMERO1           FROM CTE-NUMERO2 
+                                          GIVING WK-RESULTADORESTA
+           .
+      *
+      ******************************************************************
+      *                  2300-CALCULA-SUMA-MULTIPLE                    *
+      *----------------------------------------------------------------*
+      * Este párrafo calcula la suma múltiple.                         *
+      ******************************************************************
+       2300-CALCULA-SUMA-MULTIPLE.
+      * 
+           ADD CTE-NUMERO1,CTE-NUMERO2    TO CTE-NUMERO3 
+                                          GIVING WK-RESULTADOSUMAVARIOS
+           .
+      *
+      ******************************************************************
+      *                2400-CALCULA-MULTIPLICACION                     *
+      *----------------------------------------------------------------*
+      * Este párrafo calcula la multiplicacion.                        *
+      ******************************************************************
+       2400-CALCULA-MULTIPLICACION.
+      * 
+           MULTIPLY CTE-NUMERO1           BY CTE-NUMERO2 
+                                       GIVING WK-RESULTADOMULTIPLICACION
+           .
+      *
+      ******************************************************************
+      *                  2500-CALCULA-DIVISION                         *
+      *----------------------------------------------------------------*
+      * Este párrafo calcula la división                               *
+      ******************************************************************
+       2500-CALCULA-DIVISION.
+      * 
+           DIVIDE CTE-NUMERO1             BY CTE-NUMERO2 
+                                          GIVING WK-RESULTADODIVISION
+           .
+      *
+      ******************************************************************
+      *                   2600-CALCULA-ECUACION                        *
+      *----------------------------------------------------------------*
+      * Este párrafo calcula una ecuación.                             *
+      ******************************************************************
+       2600-CALCULA-ECUACION.
+      * 
+           COMPUTE WK-RESULTADOCOMPUTE = (CTE-NUMERO2 - CTE-NUMERO1) 
+                                      * CTE-NUMERO3
+           .
+      *        
+      ******************************************************************
+      *                   2700-MUESTRA-RESULTADO                       *
+      *----------------------------------------------------------------*
+      *                                                                *
+      ******************************************************************
+       2700-MUESTRA-RESULTADO.
+      *
+      * Elimino los puntos porque son innecesarios
+      *
            DISPLAY "El resultado de sumar "
-                   NUMERO1 " + " NUMERO2
-                   " es " RESULTADOSUMA.
+                   CTE-NUMERO1 " + " CTE-NUMERO2
+                   " es " WK-RESULTADOSUMA
 
            DISPLAY "El resultado de restar "
-                   NUMERO2 " - " NUMERO1
-                   " es " RESULTADORESTA.
+                   CTE-NUMERO2 " - " CTE-NUMERO1
+                   " es " WK-RESULTADORESTA
 
            DISPLAY "El resultado de sumar "
-                   NUMERO1 " + " NUMERO2" + " NUMERO3
-                   " es " RESULTADOSUMAVARIOS.
+                   CTE-NUMERO1 " + " CTE-NUMERO2" + " CTE-NUMERO3
+                   " es " WK-RESULTADOSUMAVARIOS
 
            DISPLAY "El resultado de multiplicar "
-                   NUMERO1 " X " NUMERO2
-                   " es " RESULTADOMULTIPLICACION.
+                   CTE-NUMERO1 " X " CTE-NUMERO2
+                   " es " WK-RESULTADOMULTIPLICACION.
 
            DISPLAY "El resultado de dividir "
-                   NUMERO1 " / " NUMERO2
-                   " es " RESULTADODIVISION.
+                   CTE-NUMERO1 " / " CTE-NUMERO2
+                   " es " WK-RESULTADODIVISION
 
            DISPLAY "El resultado de("
-                   NUMERO2 " - " NUMERO1 ") x " NUMERO3
-                   " es " RESULTADOCOMPUTE.
-
-           STOP RUN.
-       END PROGRAM CURSO-COBOL.
+                   CTE-NUMERO2 " - " CTE-NUMERO1 ") x " CTE-NUMERO3
+                   " es " WK-RESULTADOCOMPUTE
+           .
+      *        
+      ******************************************************************
+      *                         3000-FIN                               *
+      *----------------------------------------------------------------*
+      * En esta parte, corresponde la logica para finalizar el programa*
+      * por ejemplo, cierre de ficheros, estadisticas del programa     *      
+      ******************************************************************
+       3000-FIN.
+      *
+           STOP RUN      
+           .
+      * Jamas usé esta sentencia, es más, la primera vez que la vi fue
+      * hace unos meses.      
+      *END PROGRAM CURSO-COBOL.
