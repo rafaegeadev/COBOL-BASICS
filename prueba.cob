@@ -16,7 +16,7 @@
        FILE SECTION.
        WORKING-STORAGE SECTION.
       * 
-      * --> Los numeros pueden tener como maximo 18 caracteres
+      * --> Los números pueden tener como maximo 18 caracteres
       *     entre enteros y decimales.
       *
       
@@ -34,7 +34,7 @@
       *                      VARIABLES                                 *
       ******************************************************************
        01 WK-VARIABLES. 
-      * Para iniciar las variables es valido con ZEROS pero a mi me 
+      * Para iniciar las variables es valido con ZEROS pero a mí me 
       * gusta mas ZEROES      
           05 WK-RESULTADOSUMA        PIC 9(02)       VALUE ZEROES.
           05 WK-RESULTADORESTA       PIC S9(02)      VALUE ZEROES.
@@ -51,8 +51,8 @@
       *      +  
       *      
        PROCEDURE DIVISION.
-      * Los parrafos en algunos sitios se les numera y en otros no.
-      * La numeracion es una guia para saber dentro de donde se 
+      * Los párrafos en algunos sitios numeran y en otros no.
+      * La numeración es una guía para saber dentro de donde se 
       * encuentra
       *
       * Estos 3 parrafos son casi obligatorios, siempre hay un INICIO,
@@ -68,8 +68,8 @@
       ******************************************************************
       *                       1000-INICIO                              *
       *----------------------------------------------------------------*
-      * Dentro de este parrafo se pone la logica inicial para que el   * 
-      * programa funcione por ejemplo, abrir ficheros                  *
+      * Dentro de este parrafo se pone la lógica inicial para que el   * 
+      * programa funcione, por ejemplo, abrir ficheros                 *
       ******************************************************************
        1000-INICIO.
       *
@@ -94,7 +94,7 @@
       ******************************************************************
       *                       2000-PROCESO                             *
       *----------------------------------------------------------------*
-      * En este parrafo se pone la logica del programa, por ejemplo,   * 
+      * En este parrafo se pone la lógica del programa, por ejemplo,   * 
       * lectura del fichero, que se quiere hacer con los datos del     *
       * fichero, escribir en otro fichero,...                          *
       ******************************************************************
@@ -148,7 +148,7 @@
       ******************************************************************
       *                2400-CALCULA-MULTIPLICACION                     *
       *----------------------------------------------------------------*
-      * Este párrafo calcula la multiplicacion.                        *
+      * Este párrafo calcula la multiplicación.                        *
       ******************************************************************
        2400-CALCULA-MULTIPLICACION.
       * 
@@ -215,13 +215,14 @@
       ******************************************************************
       *                         3000-FIN                               *
       *----------------------------------------------------------------*
-      * En esta parte, corresponde la logica para finalizar el programa*
+      * En esta parte, corresponde la lógica para finalizar el programa*
       * por ejemplo, cierre de ficheros, estadisticas del programa     *      
       ******************************************************************
        3000-FIN.
       *
            STOP RUN      
            .
-      * Jamas usé esta sentencia, es más, la primera vez que la vi fue
+      * Jamás usé esta sentencia, es más, la primera vez que la vi fue
       * hace unos meses.      
       *END PROGRAM CURSO-COBOL.
+
