@@ -48,6 +48,9 @@
            88 MADURO                         VALUE 40    THRU 65.
            88 ANCIANO                        VALUE 66    THRU 100.
 
+       01 COLORES                            PIC X(9)    VALUE SPACES.
+           88 PRIMARIOS          VALUES     "AMARILLO","AZUL", "ROJO".
+           88 SECUNDARIOS        VALUES "NARANJA", "VERDE", "VIOLETA".
 
 
 
@@ -132,6 +135,24 @@
 
        END-EVALUATE.
 
+      ******************************************************************
+      *         COMPROBANDO VALORES CON EL "ARRAY" COLORES             *
+      ******************************************************************    
+       SELECCIONA-COLORES.
+           DISPLAY "INTRODUCE UN COLOR:"
+           ACCEPT COLORES.
+           
+           IF PRIMARIOS THEN
+               DISPLAY "ESE COLOR ES PRIMARIO."
+           ELSE
+               IF SECUNDARIOS THEN
+                   DISPLAY "ESE COLOR ES SECUNDARIO."
+               ELSE
+                   DISPLAY "NO TENGO ALMACENADO ESE COLOR."
+               END-IF
+           END-IF
+
 
             STOP RUN.
        END PROGRAM VARIABLES-EVALUATE.
+
