@@ -87,7 +87,6 @@
                PERFORM 2301-COMPRUEBA-VALOR3
                PERFORM 2400-SOLICITA-VALOR4
                PERFORM 2401-COMPRUEBA-VALOR4
-               PERFORM 3000-FIN
                .
       *
       ******************************************************************
