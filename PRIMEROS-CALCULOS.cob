@@ -5,7 +5,7 @@
       * Tectonics: cobc
       ******************************************************************
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. CURSO-COBOL.
+       PROGRAM-ID. PRIMEROS-CALCULOS.
 
        ENVIRONMENT DIVISION.
        CONFIGURATION SECTION.
@@ -16,11 +16,6 @@
        FILE SECTION.
        WORKING-STORAGE SECTION.
       * 
-      * --> Los números pueden tener como maximo 18 caracteres
-      *     entre enteros y decimales.
-      *
-      
-      * las constantes suelen tener el prefijo CTE-
       ******************************************************************
       *                      CONSTANTES                                *
       ******************************************************************
@@ -29,13 +24,10 @@
           05 CTE-NUMERO2             PIC 9(02)       VALUE 15.
           05 CTE-NUMERO3             PIC 9(02)       VALUE 10.
       *    
-      * variables suelen tener el prefijo WS- o WK-
       ******************************************************************
       *                      VARIABLES                                 *
       ******************************************************************
-       01 WK-VARIABLES. 
-      * Para iniciar las variables es valido con ZEROS pero a mí me 
-      * gusta mas ZEROES      
+       01 WK-VARIABLES.       
           05 WK-RESULTADOSUMA        PIC 9(02)       VALUE ZEROES.
           05 WK-RESULTADORESTA       PIC S9(02)      VALUE ZEROES.
           05 WK-RESULTADOSUMAVARIOS  PIC 9(02)       VALUE ZEROES.
@@ -43,37 +35,28 @@
                                      PIC 9(03)       VALUE ZEROES.
           05 WK-RESULTADODIVISION    PIC 9(02)V9(01) VALUE ZEROES.
           05 WK-RESULTADOCOMPUTE     PIC S9(03)      VALUE ZEROES.
-      * Si quieres enredarte con los numeros, prueba con numeros mas
-      * grandes, positivos y negativos y en vez de 9's 
-      * pon estas opciones:
-      *      Z
-      *      -
-      *      +  
       *      
        PROCEDURE DIVISION.
       * Los párrafos en algunos sitios numeran y en otros no.
       * La numeración es una guía para saber dentro de donde se 
-      * encuentra
+      * encuentra.
       *
-      * Estos 3 parrafos son casi obligatorios, siempre hay un INICIO,
-      * PROCESO y FIN
+      * Estos 3 parrafos son casi obligatorios, 
+      *siempre hay un INICIO, PROCESO y FIN.
       *
            PERFORM 1000-INICIO
            PERFORM 2000-PROCESO
            PERFORM 3000-FIN
            .
-      * Las cajitas se usan para saber donde empieza y acaba cada 
-      * parrafo
       *
       ******************************************************************
       *                       1000-INICIO                              *
       *----------------------------------------------------------------*
       * Dentro de este parrafo se pone la lógica inicial para que el   * 
-      * programa funcione, por ejemplo, abrir ficheros                 *
+      * programa funcione, por ejemplo: abrir ficheros.                *
       ******************************************************************
        1000-INICIO.
       *
-      * te creo este parrafo para que tengas un ejemplo
            PERFORM 1100-INICIAR-VARIABLES
            .
       ******************************************************************
@@ -94,7 +77,7 @@
       ******************************************************************
       *                       2000-PROCESO                             *
       *----------------------------------------------------------------*
-      * En este parrafo se pone la lógica del programa, por ejemplo,   * 
+      * En este parrafo se pone la lógica del programa, por ejemplo:   * 
       * lectura del fichero, que se quiere hacer con los datos del     *
       * fichero, escribir en otro fichero,...                          *
       ******************************************************************
@@ -117,10 +100,7 @@
        2100-CALCULA-SUMA.
       * 
            ADD CTE-NUMERO1                TO CTE-NUMERO2 
-                                          GIVING WK-RESULTADOSUMA
-      *Si quieres menos quebraderos de cabeza, solo usa los puntos 
-      * obigatorios y en los parrafos que sean en una linea 
-      * independiente      
+                                          GIVING WK-RESULTADOSUMA      
            .           
       *
       ******************************************************************
@@ -185,8 +165,6 @@
       ******************************************************************
        2700-MUESTRA-RESULTADO.
       *
-      * Elimino los puntos porque son innecesarios
-      *
            DISPLAY "El resultado de sumar "
                    CTE-NUMERO1 " + " CTE-NUMERO2
                    " es " WK-RESULTADOSUMA
@@ -215,14 +193,13 @@
       ******************************************************************
       *                         3000-FIN                               *
       *----------------------------------------------------------------*
-      * En esta parte, corresponde la lógica para finalizar el programa*
-      * por ejemplo, cierre de ficheros, estadisticas del programa     *      
+      * Esta parte corresponde la lógica para finalizar el programa,   *
+      * por ejemplo: cierre de ficheros, estadisticas del programa ... *      
       ******************************************************************
        3000-FIN.
       *
            STOP RUN      
            .
-      * Jamás usé esta sentencia, es más, la primera vez que la vi fue
-      * hace unos meses.      
-      *END PROGRAM CURSO-COBOL.
+      *
+      ******************************************************************
 
