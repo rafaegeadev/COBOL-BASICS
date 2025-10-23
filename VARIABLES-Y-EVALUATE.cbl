@@ -70,7 +70,6 @@
            PERFORM 2200-COMPRUEBA-EDAD-EVALUATE
            PERFORM 2300-COMPRUEBA-EVALUATE-TRUE
            PERFORM 2400-SELECCIONA-COLOR
-           PERFORM 3000-FIN
            .
       *     
       ******************************************************************
