@@ -50,7 +50,6 @@
            PERFORM 2200-PARRAFO
            PERFORM 2300-PARRAFO
            PERFORM 2400-PARRAFO
-           PERFORM 3000-FIN
            .
       *
       ******************************************************************
