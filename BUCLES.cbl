@@ -103,14 +103,14 @@
                    DISPLAY
                    "INTRODUCE UN NÚMERO MENOR QUE 10"
                ELSE
-               IF WK-NUMBER IS >= 10 THEN
-                   DISPLAY
-                   "INTRODUCE UN NÚMERO MENOR QUE 10"
-                   PERFORM 2300-BUCLE3
-               ELSE
-                   PERFORM 2700-MUESTRA-NUMERO
-                   WITH TEST AFTER
-                   UNTIL WK-NUMBER = 10
+                    IF WK-NUMBER IS >= 10 THEN
+                        DISPLAY
+                        "INTRODUCE UN NÚMERO MENOR QUE 10"
+                        PERFORM 2300-BUCLE3
+                    ELSE
+                        PERFORM 2700-MUESTRA-NUMERO
+                        WITH TEST AFTER
+                        UNTIL WK-NUMBER = 10
                END-IF
                .
       *
@@ -180,3 +180,4 @@
             .
       *
       ******************************************************************
+
