@@ -1,0 +1,26 @@
+========================================
+    REPORTE DE CRUZADO DE ARCHIVOS
+========================================
+
+CODIGO:   00001 | Juan Perez Martinez            | *** COINCIDENCIA ***
+CODIGO:   00002 | SIN NOMBRE                     | SOLO EN MOVIMIENTOS
+CODIGO:   00003 | Maria Garcia Lopez             | *** COINCIDENCIA ***
+CODIGO:   00005 | Pedro Lopez Sanchez            | *** COINCIDENCIA ***
+CODIGO:   00007 | Ana Rodriguez Fernandez        | *** COINCIDENCIA ***
+CODIGO:   00008 | SIN NOMBRE                     | SOLO EN MOVIMIENTOS
+CODIGO:   00010 | Carlos Gonzalez Ruiz           | *** COINCIDENCIA ***
+CODIGO:   00012 | Laura Martinez Gomez           | *** COINCIDENCIA ***
+CODIGO:   00015 | Roberto Sanchez Diaz           | *** COINCIDENCIA ***
+CODIGO:   00018 | Sofia Fernandez Castro         | *** COINCIDENCIA ***
+CODIGO:   00020 | Miguel Torres Moreno           | *** COINCIDENCIA ***
+CODIGO:   00022 | SIN NOMBRE                     | SOLO EN MOVIMIENTOS
+CODIGO:   00025 | Elena Ramirez Ortiz            | *** COINCIDENCIA ***
+
+========================================
+           ESTADISTICAS
+========================================
+REGISTROS MAESTRO LEIDOS:     00010=====
+REGISTROS MOVIMIENTOS LEIDOS: 00013=====
+COINCIDENCIAS:                00010=====
+SOLO EN MAESTRO:              00000=====
+SOLO EN MOVIMIENTOS:          00003=====
